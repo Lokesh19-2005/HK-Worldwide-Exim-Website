@@ -111,9 +111,9 @@ button{font-family:inherit;cursor:pointer;}
 }
 .site-header .nav-wrap{display:flex;align-items:center;justify-content:space-between;}
 .brand{display:flex;align-items:center;gap:16px;}
-.brand img{height:78px;width:auto;border-radius:4px;}
+.brand img{height:90px;width:auto;border-radius:4px;filter:brightness(1.1) contrast(1.05);}
 .brand-text{display:flex;flex-direction:column;line-height:1.15;}
-.brand-text .name{font-family:var(--serif);color:#fff;font-size:20px;letter-spacing:0.02em;font-weight:700;}
+.brand-text .name{font-family:var(--serif);color:#fff;font-size:22px;letter-spacing:0.02em;font-weight:700;}
 .brand-text .tagline{font-size:10px;letter-spacing:0.18em;color:var(--gold);text-transform:uppercase;margin-top:4px;font-weight:500;}
 .brand-text{display:flex;flex-direction:column;line-height:1;}
 .brand-text .name{font-family:var(--serif);color:#fff;font-size:17px;letter-spacing:0.02em;font-weight:700;}
@@ -146,9 +146,9 @@ button{font-family:inherit;cursor:pointer;}
   .nav-links{display:none;}
   .nav-cta .btn{display:none;}
   .menu-toggle{display:block;}
-  .brand-text .name{font-size:15px;}
+  .brand-text .name{font-size:16px;}
   .brand-text .tagline{display:none;}
-  .brand img{height:56px;}
+  .brand img{height:64px;}
 }
 
 .mobile-menu{
