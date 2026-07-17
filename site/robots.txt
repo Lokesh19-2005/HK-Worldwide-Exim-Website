@@ -1,4 +1,10 @@
+# Robots.txt for HK Worldwide Exim
+# https://www.hkworldwideexim.com
+
 User-agent: *
 Allow: /
+Disallow: /.vercel/
+Disallow: /404.html
 
+# Sitemap
 Sitemap: https://www.hkworldwideexim.com/sitemap.xml
