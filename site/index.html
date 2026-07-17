@@ -7,21 +7,63 @@
 <meta name="description" content="HK Worldwide Exim specializes in exporting authentic Indian products — Coffee Beans, Chilli Powder & Turmeric Powder — ensuring the best quality at competitive prices.">
 <meta name="robots" content="index, follow">
 <link rel="canonical" href="https://www.hkworldwideexim.com/index.html">
-
 <meta property="og:type" content="website">
 <meta property="og:title" content="HK Worldwide Exim | Premium Indian Export Products">
 <meta property="og:description" content="HK Worldwide Exim specializes in exporting authentic Indian products — Coffee Beans, Chilli Powder & Turmeric Powder — ensuring the best quality at competitive prices.">
 <meta property="og:image" content="assets/images/logo.png">
 <meta property="og:url" content="https://www.hkworldwideexim.com/index.html">
-<meta name="twitter:card" content="summary_large_image">
-<meta name="twitter:title" content="HK Worldwide Exim | Premium Indian Export Products">
-<meta name="twitter:description" content="HK Worldwide Exim specializes in exporting authentic Indian products — Coffee Beans, Chilli Powder & Turmeric Powder — ensuring the best quality at competitive prices.">
-
 <link rel="icon" href="assets/images/logo.png" type="image/png">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@500;600;700;800&family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
 <link rel="stylesheet" href="assets/css/style.css">
+<style>
+/* Hero Slideshow */
+.hero-slideshow{position:absolute;inset:0;z-index:0;overflow:hidden;}
+.hero-slideshow .slide{position:absolute;inset:0;opacity:0;transition:opacity 1.5s ease;will-change:opacity;}
+.hero-slideshow .slide.active{opacity:1;}
+.hero-slideshow .slide img{width:100%;height:100%;object-fit:cover;transform:scale(1.05);animation:slowZoom 8s ease forwards;}
+@keyframes slowZoom{from{transform:scale(1.05);}to{transform:scale(1);}}
+.hero-slideshow::after{content:'';position:absolute;inset:0;background:linear-gradient(180deg,rgba(0,0,0,0.7) 0%,rgba(0,0,0,0.5) 50%,rgba(0,0,0,0.8) 100%);z-index:1;}
+
+/* Slide indicators */
+.slide-indicators{position:absolute;bottom:30px;left:50%;transform:translateX(-50%);z-index:10;display:flex;gap:10px;}
+.slide-indicators .dot{width:12px;height:12px;border-radius:50%;border:2px solid rgba(255,255,255,0.6);background:transparent;cursor:pointer;transition:all .4s;}
+.slide-indicators .dot.active{background:var(--gold);border-color:var(--gold);transform:scale(1.2);}
+
+/* Premium hero overrides */
+.hero-premium{position:relative;min-height:100vh;display:flex;align-items:center;overflow:hidden;padding-top:120px;}
+.hero-premium .hero-content{position:relative;z-index:5;text-align:center;max-width:950px;margin:0 auto;}
+.hero-premium h1{font-size:clamp(36px,6.5vw,78px);color:#fff;line-height:1.06;margin:26px 0 24px;text-shadow:0 4px 30px rgba(0,0,0,0.4);}
+.hero-premium h1 em{font-style:italic;color:var(--gold);background:linear-gradient(135deg,#F0D98C,#D4AF37);-webkit-background-clip:text;background-clip:text;-webkit-text-fill-color:transparent;}
+.hero-premium .sub{font-size:18px;line-height:1.75;color:rgba(255,255,255,0.75);max-width:680px;margin:0 auto 48px;font-weight:300;text-shadow:0 2px 10px rgba(0,0,0,0.3);}
+.hero-premium .stats-bar{position:relative;z-index:5;border-top:1px solid rgba(255,255,255,0.12);padding-top:48px;margin-top:60px;}
+
+/* Product showcase cards */
+.product-showcase{position:relative;overflow:hidden;}
+.product-showcase .card{overflow:hidden;border:none;background:#fff;box-shadow:0 20px 60px -20px rgba(0,0,0,0.15);}
+.product-showcase .card:hover{transform:translateY(-12px);box-shadow:0 40px 80px -20px rgba(0,0,0,0.25);}
+.product-showcase .card .img-wrap{height:280px;overflow:hidden;}
+.product-showcase .card .img-wrap img{width:100%;height:100%;object-fit:cover;transition:transform 1s var(--ease);}
+.product-showcase .card:hover .img-wrap img{transform:scale(1.1);}
+.product-showcase .card .body{padding:32px;text-align:center;}
+.product-showcase .card h3{font-size:22px;margin-bottom:10px;}
+.product-showcase .card p{font-size:14px;color:#666;line-height:1.7;font-weight:300;}
+
+/* Premium divider */
+.premium-divider{width:80px;height:2px;background:linear-gradient(90deg,transparent,var(--gold),transparent);margin:0 auto 40px;}
+
+@media(max-width:768px){
+  .hero-premium{padding-top:100px;min-height:100svh;}
+  .hero-premium .sub{font-size:15px;margin-bottom:36px;}
+  .hero-premium .stats-bar{margin-top:40px;padding-top:32px;}
+  .stats-grid{grid-template-columns:repeat(3,1fr)!important;gap:16px!important;}
+  .stat-num{font-size:clamp(24px,5vw,34px)!important;}
+  .hero-actions .btn{padding:14px 24px;font-size:11px;}
+  .product-showcase .card .img-wrap{height:200px;}
+  .slide-indicators{bottom:20px;}
+}
+</style>
 
 <script type="application/ld+json">
 {
@@ -43,8 +85,7 @@
     "@type": "ContactPoint",
     "telephone": "+91-7892213327",
     "contactType": "customer service"
-  },
-  "sameAs": []
+  }
 }
 </script>
 </head>
@@ -87,83 +128,115 @@
 
 <main>
 
-<section class="hero">
-  <div class="hero-glow"></div>
-  <div class="container hero-content">
-    <span class="eyebrow">Premium Indian Exports</span>
-    <h1>Connecting Indian Suppliers<br>with <em>Global Buyers</em></h1>
-    <p class="sub">HK Worldwide Exim specializes in connecting buyers with authentic Indian products — from agricultural goods to spices — ensuring the best quality at competitive prices.</p>
-    <div class="hero-actions">
-      <a href="products.html" class="btn btn-gold">Explore Products</a>
-      <a href="contact.html" class="btn btn-outline">Contact Us</a>
+<!-- HERO WITH SLIDESHOW -->
+<section class="hero-premium">
+  <div class="hero-slideshow">
+    <div class="slide active">
+      <img src="https://images.unsplash.com/photo-1447933601403-0c6688de566e?auto=format&fit=crop&w=1920&q=80" alt="Premium coffee beans from Indian plantations">
+    </div>
+    <div class="slide">
+      <img src="https://images.unsplash.com/photo-1596040033229-a9821ebd058d?auto=format&fit=crop&w=1920&q=80" alt="Vibrant Indian spices and chilli powder">
+    </div>
+    <div class="slide">
+      <img src="https://images.unsplash.com/photo-1615485500704-8e990f9900f7?auto=format&fit=crop&w=1920&q=80" alt="Golden turmeric powder for export">
+    </div>
+    <div class="slide">
+      <img src="https://images.unsplash.com/photo-1494412574643-ff11b0a5c1c3?auto=format&fit=crop&w=1920&q=80" alt="Global shipping and trade logistics">
+    </div>
+    <div class="slide">
+      <img src="https://images.unsplash.com/photo-1524661135-423995f22d0b?auto=format&fit=crop&w=1920&q=80" alt="Worldwide export network">
     </div>
   </div>
+  <div class="slide-indicators">
+    <span class="dot active"></span>
+    <span class="dot"></span>
+    <span class="dot"></span>
+    <span class="dot"></span>
+    <span class="dot"></span>
+  </div>
+
+  <div class="container hero-content">
+    <span class="eyebrow">Premium Indian Exports</span>
+    <h1>Authentic Indian Products<br>Delivered <em>Worldwide</em></h1>
+    <p class="sub">We connect international buyers with India's finest Coffee Beans, Chilli Powder & Turmeric Powder — quality guaranteed, competitively priced, reliably shipped.</p>
+    <div class="hero-actions">
+      <a href="products.html" class="btn btn-gold">Explore Products</a>
+      <a href="https://wa.me/917892213327" class="btn btn-outline" target="_blank" rel="noopener">WhatsApp Us</a>
+    </div>
+  </div>
+
   <div class="container stats-bar">
     <div class="stats-grid" style="grid-template-columns:repeat(3,1fr);">
-      <div class="reveal in">
+      <div>
         <div class="stat-num"><span data-count="95" data-suffix="%">0</span></div>
         <div class="stat-label">Best Services</div>
       </div>
-      <div class="reveal in">
+      <div>
         <div class="stat-num"><span data-count="98.6" data-suffix="%">0</span></div>
         <div class="stat-label">Customer Satisfaction</div>
       </div>
-      <div class="reveal in">
-        <div class="stat-num">⭐⭐⭐⭐⭐</div>
+      <div>
+        <div class="stat-num" style="font-size:clamp(20px,3vw,32px);">⭐⭐⭐⭐⭐</div>
         <div class="stat-label">Client Rating</div>
       </div>
     </div>
   </div>
-  <div class="scroll-cue"><span>Scroll</span><span class="line"></span></div>
 </section>
 
-<!-- INTRO -->
+<!-- ABOUT INTRO -->
 <section class="section">
   <div class="container grid-2">
     <div class="reveal">
       <span class="eyebrow">Who We Are</span>
       <h2 class="mt-2">Your Trusted Partner for<br>Indian Export Products</h2>
       <p class="lead mt-3">At HK Worldwide Exim, we may be a young startup, but our team brings years of experience in international trade and sourcing. We specialize in connecting buyers with authentic Indian products — ensuring the best quality at competitive prices.</p>
-      <p class="mt-3 fw-300" style="color:#666;line-height:1.8;">What sets us apart is our strong supplier network, transparent processes, and commitment to delivering value. Whether it's bulk exports or specialized shipments, we make sure our clients benefit from India's diverse production capabilities while enjoying smooth and reliable global trade services.</p>
+      <p class="mt-3 fw-300" style="color:#666;line-height:1.8;">What sets us apart is our strong supplier network, transparent processes, and commitment to delivering value. Whether it's bulk exports or specialized shipments, we make sure our clients benefit from India's diverse production capabilities.</p>
       <a href="about.html" class="btn btn-outline-dark mt-4">Learn More About Us</a>
     </div>
     <div class="reveal-scale">
-      <img src="https://images.unsplash.com/photo-1494412574643-ff11b0a5c1c3?auto=format&fit=crop&w=1000&q=80" alt="Container ship carrying global exports at port" style="border-radius:4px;box-shadow:0 40px 80px -30px rgba(0,0,0,0.25);">
+      <img src="https://images.unsplash.com/photo-1553413077-190083ec01c1?auto=format&fit=crop&w=1000&q=80" alt="HK Worldwide Exim warehouse operations" style="border-radius:4px;box-shadow:0 40px 80px -30px rgba(0,0,0,0.25);">
     </div>
   </div>
 </section>
 
-<!-- PRODUCTS PREVIEW -->
-<section class="section-tight section-mist">
+<!-- PRODUCT SHOWCASE -->
+<section class="section section-mist product-showcase">
   <div class="container">
     <div class="section-head center reveal">
       <span class="eyebrow" style="justify-content:center;">Our Products</span>
-      <h2>Premium Indian Export Products</h2>
+      <h2>Premium Export Products</h2>
+      <div class="premium-divider" style="margin-top:20px;"></div>
     </div>
     <div class="grid-3 stagger">
-      <div class="card reveal" style="padding:34px 26px;text-align:center;">
-        <div class="icon-card" style="padding:0;text-align:center;">
-          <div class="ic" style="margin:0 auto 20px;"><i data-lucide="coffee" width="24" height="24"></i></div>
+      <div class="card reveal">
+        <div class="img-wrap">
+          <img src="https://images.unsplash.com/photo-1447933601403-0c6688de566e?auto=format&fit=crop&w=700&q=80" alt="Premium Indian coffee beans">
+        </div>
+        <div class="body">
           <h3>Coffee Beans</h3>
-          <p>Premium Indian coffee beans sourced from the finest plantations, graded for international export.</p>
+          <p>Premium Arabica & Robusta beans from Karnataka's finest plantations, graded for international export.</p>
         </div>
       </div>
-      <div class="card reveal" style="padding:34px 26px;text-align:center;">
-        <div class="icon-card" style="padding:0;text-align:center;">
-          <div class="ic" style="margin:0 auto 20px;"><i data-lucide="flame" width="24" height="24"></i></div>
+      <div class="card reveal">
+        <div class="img-wrap">
+          <img src="https://images.unsplash.com/photo-1596040033229-a9821ebd058d?auto=format&fit=crop&w=700&q=80" alt="Export-grade Indian chilli powder">
+        </div>
+        <div class="body">
           <h3>Chilli Powder</h3>
-          <p>Authentic Indian chilli powder with rich color and consistent heat levels, export-grade quality.</p>
+          <p>Rich red color, consistent heat, full aroma — processed under international food safety standards.</p>
         </div>
       </div>
-      <div class="card reveal" style="padding:34px 26px;text-align:center;">
-        <div class="icon-card" style="padding:0;text-align:center;">
-          <div class="ic" style="margin:0 auto 20px;"><i data-lucide="leaf" width="24" height="24"></i></div>
+      <div class="card reveal">
+        <div class="img-wrap">
+          <img src="https://images.unsplash.com/photo-1615485500704-8e990f9900f7?auto=format&fit=crop&w=700&q=80" alt="High-curcumin turmeric powder">
+        </div>
+        <div class="body">
           <h3>Turmeric Powder</h3>
-          <p>High-curcumin turmeric powder processed to international standards with full traceability.</p>
+          <p>High-curcumin turmeric with vibrant golden color, lab tested and export-ready.</p>
         </div>
       </div>
     </div>
-    <div style="text-align:center;margin-top:50px;">
+    <div style="text-align:center;margin-top:56px;">
       <a href="products.html" class="btn btn-outline-dark">View All Products</a>
     </div>
   </div>
@@ -175,6 +248,7 @@
     <div class="section-head center reveal">
       <span class="eyebrow" style="justify-content:center;">Why Choose Us</span>
       <h2>What Sets Us Apart</h2>
+      <div class="premium-divider" style="margin-top:20px;"></div>
       <p>Our clients trust us for delivering high-quality exports at the most competitive prices.</p>
     </div>
     <div class="grid-3 stagger">
@@ -191,7 +265,7 @@
       <div class="icon-card card reveal">
         <div class="ic"><i data-lucide="heart-handshake" width="22" height="22"></i></div>
         <h3>Commitment to Value</h3>
-        <p>Best quality at competitive prices — ensuring long-term partnerships built on trust.</p>
+        <p>Best quality at competitive prices — long-term partnerships built on trust.</p>
       </div>
     </div>
   </div>
@@ -201,12 +275,17 @@
 <section class="section">
   <div class="container grid-2">
     <div class="reveal-scale">
-      <img src="https://images.unsplash.com/photo-1524661135-423995f22d0b?auto=format&fit=crop&w=1000&q=80" alt="Global trade network" style="border-radius:4px;">
+      <img src="https://images.unsplash.com/photo-1524661135-423995f22d0b?auto=format&fit=crop&w=1000&q=80" alt="Global trade network" style="border-radius:4px;box-shadow:0 30px 60px -20px rgba(0,0,0,0.2);">
     </div>
     <div class="reveal">
       <span class="eyebrow">Global Reach</span>
       <h2 class="mt-2">Connecting Indian Suppliers<br>with International Buyers</h2>
       <p class="lead mt-3">Our global reach allows us to connect Indian suppliers with international buyers, ensuring reliable supply chains and long-term partnerships across multiple industries.</p>
+      <div style="display:flex;flex-direction:column;gap:16px;margin-top:30px;">
+        <div style="display:flex;gap:12px;align-items:center;"><i data-lucide="check-circle-2" width="18" height="18" style="color:var(--gold-soft);flex-shrink:0;"></i><span style="font-size:14.5px;color:#444;">Reliable supply chains worldwide</span></div>
+        <div style="display:flex;gap:12px;align-items:center;"><i data-lucide="check-circle-2" width="18" height="18" style="color:var(--gold-soft);flex-shrink:0;"></i><span style="font-size:14.5px;color:#444;">Long-term buyer partnerships</span></div>
+        <div style="display:flex;gap:12px;align-items:center;"><i data-lucide="check-circle-2" width="18" height="18" style="color:var(--gold-soft);flex-shrink:0;"></i><span style="font-size:14.5px;color:#444;">Competitive pricing, no middlemen</span></div>
+      </div>
       <a href="contact.html" class="btn btn-outline-dark mt-4">Start a Conversation</a>
     </div>
   </div>
@@ -217,8 +296,12 @@
   <div class="container reveal">
     <span class="eyebrow" style="justify-content:center;">Start a Partnership</span>
     <h2 class="mt-2" style="font-size:clamp(28px,4vw,42px);">Ready to Source Premium Indian Products?</h2>
+    <div class="premium-divider" style="margin-top:20px;"></div>
     <p style="max-width:560px;margin:20px auto 36px;color:rgba(255,255,255,0.6);font-weight:300;">Tell us what you need — our team responds promptly with competitive quotes and reliable service.</p>
-    <a href="contact.html" class="btn btn-gold">Request a Quotation</a>
+    <div style="display:flex;gap:16px;justify-content:center;flex-wrap:wrap;">
+      <a href="contact.html" class="btn btn-gold">Request a Quotation</a>
+      <a href="https://wa.me/917892213327" class="btn btn-outline" target="_blank" rel="noopener">WhatsApp Us</a>
+    </div>
   </div>
 </section>
 
@@ -276,5 +359,40 @@
 
 <script src="https://unpkg.com/lucide@latest/dist/umd/lucide.js"></script>
 <script src="assets/js/main.js"></script>
+<script>
+// Hero Slideshow
+(function(){
+  const slides = document.querySelectorAll('.hero-slideshow .slide');
+  const dots = document.querySelectorAll('.slide-indicators .dot');
+  let current = 0;
+  let interval;
+
+  function goTo(idx){
+    slides[current].classList.remove('active');
+    dots[current].classList.remove('active');
+    current = idx;
+    slides[current].classList.add('active');
+    dots[current].classList.add('active');
+  }
+
+  function next(){
+    goTo((current + 1) % slides.length);
+  }
+
+  function startAutoplay(){
+    interval = setInterval(next, 4500);
+  }
+
+  dots.forEach(function(dot, i){
+    dot.addEventListener('click', function(){
+      clearInterval(interval);
+      goTo(i);
+      startAutoplay();
+    });
+  });
+
+  startAutoplay();
+})();
+</script>
 </body>
 </html>
