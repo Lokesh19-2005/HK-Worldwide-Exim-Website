@@ -111,7 +111,7 @@ button{font-family:inherit;cursor:pointer;}
 }
 .site-header .nav-wrap{display:flex;align-items:center;justify-content:space-between;}
 .brand{display:flex;align-items:center;gap:16px;}
-.brand img{height:62px;width:auto;border-radius:4px;}
+.brand img{height:78px;width:auto;border-radius:4px;}
 .brand-text{display:flex;flex-direction:column;line-height:1.15;}
 .brand-text .name{font-family:var(--serif);color:#fff;font-size:20px;letter-spacing:0.02em;font-weight:700;}
 .brand-text .tagline{font-size:10px;letter-spacing:0.18em;color:var(--gold);text-transform:uppercase;margin-top:4px;font-weight:500;}
@@ -148,7 +148,7 @@ button{font-family:inherit;cursor:pointer;}
   .menu-toggle{display:block;}
   .brand-text .name{font-size:15px;}
   .brand-text .tagline{display:none;}
-  .brand img{height:48px;}
+  .brand img{height:56px;}
 }
 
 .mobile-menu{
