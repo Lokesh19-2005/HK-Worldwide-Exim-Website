@@ -30,7 +30,7 @@ document.addEventListener('DOMContentLoaded', function () {
   });
 
   /* ---- Scroll reveal ---- */
-  const revealEls = document.querySelectorAll('.reveal, .reveal-scale');
+  const revealEls = document.querySelectorAll('.reveal, .reveal-scale, .reveal-left, .reveal-right');
   if ('IntersectionObserver' in window) {
     const io = new IntersectionObserver((entries) => {
       entries.forEach(e => {
@@ -39,7 +39,7 @@ document.addEventListener('DOMContentLoaded', function () {
           io.unobserve(e.target);
         }
       });
-    }, { threshold: 0.15, rootMargin: '0px 0px -60px 0px' });
+    }, { threshold: 0.12, rootMargin: '0px 0px -80px 0px' });
     revealEls.forEach(el => io.observe(el));
   } else {
     revealEls.forEach(el => el.classList.add('in'));
@@ -153,4 +153,37 @@ document.addEventListener('DOMContentLoaded', function () {
 
   /* ---- Lucide icons ---- */
   if (window.lucide) lucide.createIcons();
+
+  /* ---- Back to top button ---- */
+  const btt = document.createElement('button');
+  btt.className = 'back-to-top';
+  btt.setAttribute('aria-label', 'Back to top');
+  btt.innerHTML = '<svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="18 15 12 9 6 15"/></svg>';
+  document.body.appendChild(btt);
+  btt.addEventListener('click', () => window.scrollTo({ top: 0, behavior: 'smooth' }));
+  window.addEventListener('scroll', () => {
+    if (window.scrollY > 500) btt.classList.add('visible');
+    else btt.classList.remove('visible');
+  }, { passive: true });
+
+  /* ---- Parallax on images ---- */
+  const parallaxImgs = document.querySelectorAll('.parallax-img img');
+  if (parallaxImgs.length && window.innerWidth > 768) {
+    window.addEventListener('scroll', () => {
+      parallaxImgs.forEach(img => {
+        const rect = img.parentElement.getBoundingClientRect();
+        const speed = 0.08;
+        const yPos = (rect.top - window.innerHeight / 2) * speed;
+        img.style.transform = 'translateY(' + yPos + 'px) scale(1.05)';
+      });
+    }, { passive: true });
+  }
+
+  /* ---- Shimmer overlay in hero ---- */
+  const heroSection = document.querySelector('.hero-premium, .hero');
+  if (heroSection) {
+    const shimmer = document.createElement('div');
+    shimmer.className = 'shimmer-overlay';
+    heroSection.appendChild(shimmer);
+  }
 });
