@@ -137,9 +137,9 @@ document.addEventListener('DOMContentLoaded', function () {
     });
   });
 
-  /* ---- Contact form (static demo) ---- */
+  /* ---- Contact form (Web3Forms) ---- */
   const form = document.querySelector('.contact-form');
-  if (form) {
+  if (form && !form.getAttribute('action')) {
     form.addEventListener('submit', (e) => {
       e.preventDefault();
       const btn = form.querySelector('button[type="submit"]');

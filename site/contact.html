@@ -159,25 +159,29 @@
 
     <div class="card reveal-scale" style="padding:44px;background:#fff;">
       <h3 style="font-size:22px;margin-bottom:26px;">Send Us an Enquiry</h3>
-      <form class="contact-form">
+      <form class="contact-form" action="https://api.web3forms.com/submit" method="POST">
+        <input type="hidden" name="access_key" value="d8b9d028-aadb-489b-a32c-676f7e5b0c71">
+        <input type="hidden" name="subject" value="New Enquiry from HK Worldwide Exim Website">
+        <input type="hidden" name="from_name" value="HK Worldwide Exim Website">
         <div class="form-row">
-          <div class="form-field"><label>Full Name</label><input type="text" placeholder="Your Name" required></div>
-          <div class="form-field"><label>Company Name</label><input type="text" placeholder="Your Company"></div>
+          <div class="form-field"><label>Full Name</label><input type="text" name="name" placeholder="Your Name" required></div>
+          <div class="form-field"><label>Company Name</label><input type="text" name="company" placeholder="Your Company"></div>
         </div>
         <div class="form-row">
-          <div class="form-field"><label>Phone / WhatsApp</label><input type="tel" placeholder="+91 XXXXX XXXXX" required></div>
-          <div class="form-field"><label>Country</label><input type="text" placeholder="Your Country" required></div>
+          <div class="form-field"><label>Phone / WhatsApp</label><input type="tel" name="phone" placeholder="+91 XXXXX XXXXX" required></div>
+          <div class="form-field"><label>Country</label><input type="text" name="country" placeholder="Your Country" required></div>
         </div>
         <div class="form-field">
           <label>Product of Interest</label>
-          <select>
+          <select name="product">
             <option>Coffee Beans</option>
             <option>Chilli Powder</option>
             <option>Turmeric Powder</option>
             <option>Other / Custom Requirement</option>
           </select>
         </div>
-        <div class="form-field"><label>Message</label><textarea placeholder="Tell us about your requirement, quantity, and destination..." required></textarea></div>
+        <div class="form-field"><label>Message</label><textarea name="message" placeholder="Tell us about your requirement, quantity, and destination..." required></textarea></div>
+        <input type="hidden" name="redirect" value="https://web3forms.com/success">
         <button type="submit" class="btn btn-gold" style="width:100%;justify-content:center;">Send Enquiry</button>
       </form>
     </div>
